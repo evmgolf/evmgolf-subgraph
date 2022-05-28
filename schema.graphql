@@ -1,0 +1,25 @@
+type ProgramEntity @entity {
+  id: ID!
+  creator: Bytes! # address
+  owner: Bytes!
+  created: BigInt!
+}
+
+type ChallengeEntity @entity {
+  id: ID!
+  creator: Bytes!
+  owner: Bytes!
+  created: BigInt!
+  accepted: Boolean
+}
+
+type TrophyEntity @entity {
+  id: ID!
+  creator: Bytes # address
+  owner: Bytes
+  created: BigInt
+  challenge: Bytes # address 
+  program: Bytes # address 
+  size: BigInt
+  gasUsed: BigInt
+}

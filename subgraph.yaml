@@ -1,0 +1,66 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Programs
+    network: mainnet
+    source:
+      address: "0x5fbdb2315678afecb367f032d93f642f64180aa3"
+      abi: Programs
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: Programs
+          file: ./abis/Programs.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleProgramTransfer
+      file: ./src/programs.ts
+  - kind: ethereum
+    name: Challenges
+    network: mainnet
+    source:
+      address: "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512"
+      abi: Challenges
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: Challenges
+          file: ./abis/Challenges.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleChallengeTransfer
+        - event: ReviewChallenge(indexed uint256,bool,bytes)
+          handler: handleReviewChallenge
+      file: ./src/challenges.ts
+  - kind: ethereum
+    name: Trophies
+    network: mainnet
+    source:
+      address: "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0"
+      abi: Trophies
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Created
+      abis:
+        - name: Trophies
+          file: ./abis/Trophies.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTrophyTransfer
+        - event: Created(uint256,address,address,uint256,uint256)
+          handler: handleTrophyCreated
+      file: ./src/trophies.ts
