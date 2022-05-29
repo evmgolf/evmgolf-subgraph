@@ -4,10 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: Programs
-    network: mainnet
+    network: mumbai
     source:
-      address: "0x5fbdb2315678afecb367f032d93f642f64180aa3"
-      abi: Programs
+      address: "0x1b38ecd445a2bb5596f00d5c2e3eeaa91a0d0a22"
+      abi: Programs 
+      startBlock: 26498626
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -23,10 +24,11 @@ dataSources:
       file: ./src/programs.ts
   - kind: ethereum
     name: Challenges
-    network: mainnet
+    network: mumbai
     source:
-      address: "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512"
+      address: "0x0d782ab1a116c7c6eb269a58c4bd8c4207408198"
       abi: Challenges
+      startBlock: 26498628
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -44,10 +46,11 @@ dataSources:
       file: ./src/challenges.ts
   - kind: ethereum
     name: Trophies
-    network: mainnet
+    network: mumbai
     source:
-      address: "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0"
+      address: "0xb6d4b6156da5b7c770acae71e1741fbb4f98fae3"
       abi: Trophies
+      startBlock: 26498630
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
